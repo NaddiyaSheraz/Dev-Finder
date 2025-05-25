@@ -15,12 +15,15 @@ function getUser() {    //function name
             })
             .then((user) => {
                 body.innerHTML = `
-                <div>
+                <div class="user">
                     <h2>${user.login}</h2>
-                    <img src="${user.avatar_url}" alt="${user.login}'s avatar" width="150">
+                    <img class="user-card" src="${user.avatar_url}" alt="${user.login}'s avatar" width="150">
+                    <p> ${user.bio}</p>
+                    <p>Created at: ${user.created_at}</p>
                     <p>Profile: <a href="${user.html_url}" target="_blank">${user.html_url}</a></p>
-                    <p>followers: <a href="${user.followers_url}" target="_blank">${user.followers_url}</a><p/>
-                    <p>followers:${user.following_url}<p/>
+                    <p>Followers: ${user.followers}</p>
+                    <p>Following: ${user.following}</p>
+
                     </div>
                     `; })
                     .catch((error) => {
